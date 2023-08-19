@@ -1,0 +1,8 @@
+## Interface: 30300
+## Title: |cffa0f6aaSlyBars|r
+## Notes: A combopoint and energy tracker for WoW WOTLK 3.3.5a
+## Author: null
+## Version: 1.0
+## SavedVariables: SBC
+
+SlyBars.lua
