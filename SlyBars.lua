@@ -287,7 +287,7 @@
 		elseif event == "UPDATE_STEALTH" then
 			stealthed = IsStealthed()
 
-		elseif event == "PLAYER_DEAD" or event == "PLAYER_ALIVE" or "PLAYER_UNGHOST" then
+		elseif event == "PLAYER_DEAD" or event == "PLAYER_ALIVE" or event == "PLAYER_UNGHOST" then
 			isDead = UnitIsDeadOrGhost("player")
 
 		elseif event == "UNIT_DISPLAYPOWER" and unit == "player" then
