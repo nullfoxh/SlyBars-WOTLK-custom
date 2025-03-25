@@ -674,11 +674,11 @@
 
 		elseif cmd == "f" or cmd == "fade" then
 			if not SBC.fadeFrame then
-				self:EnableFading()
+				SlyBars:EnableFading()
 				SBC.fadeFrame = true
 				print("Fading enabled.")
 			else
-				self:DisableFading()
+				SlyBars:DisableFading()
 				StartFrameFade(SlyBars, true)
 				SBC.fadeFrame = false
 				print("Fading disabled.")
