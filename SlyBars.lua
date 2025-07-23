@@ -34,6 +34,7 @@
 	local GetWeaponEnchantInfo = GetWeaponEnchantInfo
 
 	local p = function(s) print("|cffa0f6aaSlyBars|r: "..s) end
+	local pf = function(fmt, ...) p(format(fmt, ...)) end
 
 	SlyBars = CreateFrame("Frame", nil, UIParent)
 
