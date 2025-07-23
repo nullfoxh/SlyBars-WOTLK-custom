@@ -1,7 +1,8 @@
 	--[[
 
 		SlyBars
-			A combopoint and energy tracker for WoW TBC 2.4.3
+			A combopoint and energy tracker for WoW 3.3.5a.
+			For use on servers that have energyticks in vanilla/tbc fashion.
 
 			by null
 			https://github.com/nullfoxh/SlyBars-WOTLK-custom
