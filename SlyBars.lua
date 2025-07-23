@@ -481,11 +481,13 @@
 			end)
 
 			configMode = true
-			p("config mode enabled.")
-			p("You can now mouse-over the frame and use the mousescroll to move or resize the frame.")
-			p("Mousescroll up/down for horizontal position. Hold shift for vertical position.")
-			p("Hold control to change the frame's width. Hold alt to change energy bar's height.")
-			p("Hold control and alt to change combopoint frame's height.")
+			p("Config mode |cff00ff00enabled|r.")
+			p("Use mouse scroll to adjust frame position and size:")
+			p("  - Scroll Up/Down: move horizontally")
+			p("  - Hold Shift + Scroll: move vertically")
+			p("  - Hold Ctrl + Scroll: change width")
+			p("  - Hold Alt + Scroll: change energy bar height")
+			p("  - Hold Ctrl + Alt + Scroll: change combo point height")
 		else
 			SlyBars:SetMovable(false)
 			SlyBars:EnableMouse(false)
@@ -494,7 +496,7 @@
 			SlyBars:SetScript("OnMouseDown", nil)
 			SlyBars:SetScript("OnMouseWheel", nil)
 			configMode = false
-			p("config mode disabled.")
+			p("Config mode |cffff0000disabled|r.")
 
 			if SBC.fadeFrame then
 				if ShouldShowFrame() then
@@ -583,7 +585,6 @@
 			ToggleConfigMode()
 
 		elseif cmd == "reset" then
-			-- i'm lazy ok
 			SBC = SlyBars.GetDefaultConfig()
 			ReloadUI()
 
@@ -592,15 +593,15 @@
 				SlyBars:SetFramePos(tonumber(val), nil)
 				p("Frame x-position set to: "..val)
 			else
-				p(format("Frame x-position is currently set to %d. To change use: /sb x <number>", SBC.frameX))
+				pf("Frame x-position is currently set to %d. To change use: /sb x <number>", SBC.frameX)
 			end
-		
+
 		elseif cmd == "y" or cmd == "ypos" then
 			if val then
 				SlyBars:SetFramePos(nil, tonumber(val))
 				p("Frame y-position set to: "..val)
 			else
-				p(format("Frame y-position is currently set to %d. To change use: /sb y <number>", SBC.frameY))
+				pf("Frame y-position is currently set to %d. To change use: /sb y <number>", SBC.frameY)
 			end
 
 		elseif cmd == "w" or cmd == "width" then
@@ -608,7 +609,7 @@
 				SlyBars:SetFrameWidth(tonumber(val))
 				p("Frame width set to: "..val)
 			else
-				p(format("Frame width is currently set to %d. To change use: /sb width <number>", SBC.frameWidth))
+				pf("Frame width is currently set to %d. To change use: /sb width <number>", SBC.frameWidth)
 			end
 
 		elseif cmd == "ch" or cmd == "comboheight" then
@@ -616,7 +617,7 @@
 				SlyBars:SetFrameHeight(tonumber(val))
 				p("Combopoint height set to: "..val)
 			else
-				p(format("Combopoint height is currently set to %d. To change use: /sb comboheight <number>", SBC.comboHeight))
+				pf("Combopoint height is currently set to %d. To change use: /sb comboheight <number>", SBC.comboHeight)
 			end
 
 		elseif cmd == "eh" or cmd == "energyheight" then
@@ -624,10 +625,10 @@
 				SlyBars:SetEnergyHeight(tonumber(val))
 				p("Energy height set to: "..val)
 			else
-				p(format("Energy height is currently set to %d. To change use: /sb energyheight <number>", SBC.energyHeight))
+				pf("Energy height is currently set to %d. To change use: /sb energyheight <number>", SBC.energyHeight)
 			end
 
-		elseif  cmd == "t" or cmd == "text" then
+		elseif cmd == "t" or cmd == "text" then
 			if not SBC.showText then
 				SlyBars.energy.text:SetText(curEnergy)
 				SlyBars.energy.text:Show()
@@ -645,7 +646,7 @@
 				SBC.fontSize = val
 				p("Font size set to: "..val)
 			else
-				p(format("Font size is currently set to %d. To change use: /sb fontsize <number>", SBC.fontSize))
+				pf("Font size is currently set to %d. To change use: /sb fontsize <number>", SBC.fontSize)
 			end
 
 		elseif cmd == "tick" or cmd == "spark" then
@@ -678,61 +679,86 @@
 			if not SBC.fadeFrame then
 				SlyBars:EnableFading()
 				SBC.fadeFrame = true
-				print("Fading enabled.")
+				p("Fading enabled.")
 			else
 				SlyBars:DisableFading()
 				StartFrameFade(SlyBars, true)
 				SBC.fadeFrame = false
-				print("Fading disabled.")
+				p("Fading disabled.")
 			end
 
 		elseif cmd == "fadein" then
 			if val then
 				SBC.fadeInTime = val
-				p("Fade out time set to: "..val)
+				p("Fade in time set to: "..val)
 			else
-				p(format("Fade in time is currently set to %d. To change use: /sb fadein <number>", SBC.fadeInTime))
+				pf("Fade in time is currently set to %d. To change use: /sb fadein <number>", SBC.fadeInTime)
 			end
 
 		elseif cmd == "fadeout" then
 			if val then
 				SBC.fadeOutTime = val
-				p("Fade in time set to: "..val)
+				p("Fade out time set to: "..val)
 			else
-				p(format("Fade out time is currently set to %d. To change use: /sb fadeout <number>", SBC.fadeOutTime))
+				pf("Fade out time is currently set to %d. To change use: /sb fadeout <number>", SBC.fadeOutTime)
 			end
 
-		elseif cmd == "reminder" or  cmd == "poison" then
+		elseif cmd == "reminder" or cmd == "poison" then
 			if not SBC.poisonReminder then
 				SlyBars:RegisterEvent("UNIT_INVENTORY_CHANGED")
 				SBC.poisonReminder = true
-				print("Poison reminder enabled.")
+				p("Poison reminder enabled.")
 			else
 				SlyBars:UnregisterEvent("UNIT_INVENTORY_CHANGED")
 				SBC.poisonReminder = false
-				print("Poison reminder disabled.")
+				p("Poison reminder disabled.")
 			end
-		
+
 		elseif cmd == "ignoremh" then
 			if not SBC.ignoreMhPoison then
 				SBC.ignoreMhPoison = true
-				print("Main-Hand Poison reminder disabled.")
+				p("Main-Hand Poison reminder disabled.")
 			else
 				SBC.ignoreMhPoison = false
-				print("Main-Hand Poison reminder enabled.")
+				p("Main-Hand Poison reminder enabled.")
 			end
 
-		elseif cmd == "commands" or  cmd == "help" then
-			p("The available commands are:")
-			local args = {
-						"config", "xpos", "ypos", "width", "comboheight",
-						"energyheight", "text", "fontsize", "spark", "smooth",
-						"fade", "fadein", "fadeout", "reminder", "ignoremh"
-					}
+		elseif cmd == "commands" or cmd == "help" then
+			p("SlyBars Command Guide:")
+			p("Basic Usage: |cff00ffff/sb <command> [value]|r")
+			p("Examples: /sb width 200, /sb fade, /sb text")
 
-			for i, v in ipairs(args) do
-				p("  "..v)
-			end
+			p(" ")
+			p("Appearance & Layout:")
+			p("  /sb config         - Toggle config mode (scroll to move/resize)")
+			p("  /sb xpos <value>   - Set horizontal position")
+			p("  /sb ypos <value>   - Set vertical position")
+			p("  /sb width <value>  - Set frame width")
+			p("  /sb comboheight <value> - Set combo point height")
+			p("  /sb energyheight <value> - Set energy bar height")
+
+			p(" ")
+			p("Text & Display:")
+			p("  /sb text           - Toggle energy text")
+			p("  /sb fontsize <val> - Set energy text font size")
+			p("  /sb spark          - Toggle energy tick spark")
+			p("  /sb smooth         - Toggle bar smoothing")
+
+			p(" ")
+			p("Fading:")
+			p("  /sb fade           - Enable/disable fading with no target")
+			p("  /sb fadein <val>   - Set fade-in duration (in seconds)")
+			p("  /sb fadeout <val>  - Set fade-out duration (in seconds)")
+
+			p(" ")
+			p("Poison Reminder:")
+			p("  /sb reminder       - Toggle poison reminder")
+			p("  /sb ignoremh       - Toggle main-hand poison reminder")
+
+			p(" ")
+			p("Utility:")
+			p("  /sb reset          - Reset all settings to default")
+			p("  /sb help           - Show this help message")
 		else
 			p("Type /sb help for the available commands.")
 		end
