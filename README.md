@@ -2,45 +2,79 @@
 
 ![Screenshot](SlyBars.png)
 
-## What is it
+## What is it?
 
-SlyBars is a lightweight and minimalistic energy and combopoint tracker addon for Wow WOTLK 3.3.5a.
-This version is meant to be used on custom 3.3.5a servers that have energy ticks, such as Endless, Warmane's Onyxia or Project Epoch.
-It features energy, compo point and energy tick tracking, autohiding when out of combat and poison reminders for rogues.
+**SlyBars** is a lightweight and minimalistic energy and combo point tracker addon for **WoW WOTLK 3.3.5a**.
 
+This version is designed for custom 3.3.5a servers that include energy ticks, such as **Endless**, **Warmane's Onyxia**, or **Project Epoch**.
 
-## How to install
+**Features:**
+- Energy, combo point, and energy tick tracking
+- Auto-hiding when out of combat
+- Poison reminders for rogues
+- Configurable frame position, size, and visual style
 
-Go to Releases in https://github.com/nullfoxh/SlyBars-WOTLK-custom/releases and download SlyBars.zip.  Extract it to your World of Warcraft/Interface/AddOns folder and you're done!
-The final path should be: World of Warcraft/Interface/AddOns/SlyBars/SlyBars.toc.
+---
 
+## 🔻 How to Install
 
-## How to configure
+1. Go to the [Releases](https://github.com/nullfoxh/SlyBars-WOTLK-custom/releases) page.
+2. Download `SlyBars.zip`.
+3. Extract the contents to your `World of Warcraft/Interface/AddOns` folder.
 
-Type `/sb` or `/slybars` in game access the config. The following commands are available:
-* `config` - to enable config mode
-* `xpos <number>` - To set the x position offset
-* `ypos <number>` - To set the yx position offset
-* `width <number>` - To set the frame width
-* `comboheight <number>`- To set the combo point frame height
-* `energyheight <number>` - To set the energy bar height
-* `text` - To toggle the visbility of the energy text
-* `fontsize <number>` - To set the size of the energy text
-* `spark` - Toggle energy tick spark
-* `smooth` - Toggle bar smoothing
-* `fade` - Should frame fade out when no target exists
-* `fadein <number>` - Frame fade in duration
-* `fadeout <number>` - Frame fade out duration
-* `reminder` To toggle poison reminders
-* `ignoremh` - To toggle reminders for main hand poison
-* `reset` - To reset all settings to default
+The final path should look like:
 
-While config-mode is enabled you may use the mousescroll wheel to configure the frame:
-*Mousescroll up/down for horizontal position. Hold shift for vertical position.
-*Hold control while scrolling to change the frame's width.
-*Hold alt while scrolling to change energy bar's height.
-*Hold control and alt while scrolling to change combopoint frame's height.
+`World of Warcraft/Interface/AddOns/SlyBars/SlyBars.toc`
 
+---
 
-## Credits and acknowledgements
-kuuff for their bugfix contributions
+## 🛠️ How to Configure SlyBars
+
+Type **`/sb`** or **`/slybars`** in the chat while in-game to enter config mode or run a command.
+
+---
+
+### 🔧 Basic Commands
+
+| Command | Description |
+|--------|-------------|
+| **`/sb config`** | Enable/disable config mode |
+| **`/sb reset`** | Reset all settings to default |
+| **`/sb xpos <number>`** | Set horizontal position offset |
+| **`/sb ypos <number>`** | Set vertical position offset |
+| **`/sb width <number>`** | Set frame width |
+| **`/sb comboheight <number>`** | Set combo point bar height |
+| **`/sb energyheight <number>`** | Set energy bar height |
+| **`/sb fontsize <number>`** | Set energy text font size |
+| **`/sb text`** | Toggle energy text on/off |
+| **`/sb spark`** | Toggle energy tick spark |
+| **`/sb smooth`** | Toggle bar smoothing animation |
+| **`/sb fade`** | Toggle fading when no target exists |
+| **`/sb fadein <number>`** | Set fade-in duration (in seconds) |
+| **`/sb fadeout <number>`** | Set fade-out duration (in seconds) |
+| **`/sb reminder`** | Toggle poison reminder |
+| **`/sb ignoremh`** | Toggle main-hand poison reminder |
+
+---
+
+### 🎛️ Using Mouse Scroll in Config Mode
+
+When **config mode** is active, use your mouse wheel to adjust the frame:
+
+- **Scroll Up/Down** → Move frame left/right  
+- **Hold Shift + Scroll** → Move frame up/down  
+- **Hold Ctrl + Scroll** → Adjust frame width  
+- **Hold Alt + Scroll** → Adjust energy bar height  
+- **Hold Ctrl + Alt + Scroll** → Adjust combo point bar height
+
+---
+
+### 💡 Tip
+
+Type **`/sb help`** in-game to view all available commands at any time.
+
+---
+
+## 🙏 Credits & Acknowledgements
+
+- **kuuff** — for bugfix contributions.
