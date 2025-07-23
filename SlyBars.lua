@@ -396,7 +396,7 @@
 		end
 
 		if SBC.showMsg then
-			p("Loaded. Get updates from https://github.com/nullfoxh/SlyBars")
+			p("Loaded. Get updates from https://github.com/nullfoxh/SlyBars-WOTLK-custom")
 		end
 	end
 
